@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>點擊</button>
+    <script>
+        const btn = document.querySelector('button')
+        btn.addEventListener('click',
+            function () {
+                console.log(this)//誰調用this就是誰(粗略規則)，箭頭函數就沒this
+                this.style.backgroundColor='red'//button變紅
+            }
+        )
+        fn()//指向window
+
+
+
+        function fn() {
+            console.log(this)
+        }
+    </script>
+</body>
+
+</html>

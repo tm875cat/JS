@@ -37,8 +37,15 @@
         })
 
         const btn = document.querySelector('button')
-        btn.addEventListener("click", function () {
+        btn.onclick=function(){alert("111111")}//舊寫法 on
+        btn.onclick=function(){alert("222222")}//舊寫法重複綁定會被覆蓋，因此推薦用新方法
+
+
+        btn.addEventListener("click", function () {//新寫法 addEventListener事件監聽
             alert("觸發")
+        })
+        btn.addEventListener("click", function () {//再綁一個事件沒被覆蓋
+            alert("觸發2222")
         })
     </script>
 </body>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: deeppink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mouse"></div>
+
+    <input class="focus" type="text">
+    <br>
+    <h2>鍵盤事件</h2>
+    <input class="keyboard" type="text">
+    <br>
+    <h2>文本事件</h2>
+    <input class="inputText" type="text">
+
+    <script>
+        const mouse = document.querySelector('.mouse')//滑鼠
+        mouse.addEventListener('mouseenter', () => {//滑鼠經過
+            console.log("滑鼠經過")
+        })
+        mouse.addEventListener('mouseleave', () => {//滑鼠離開
+            console.log("滑鼠離開")
+        })
+        const focus = document.querySelector('.focus')//焦點  
+        focus.addEventListener('focus', () => {//獲得焦點  
+            console.log('獲得焦點')
+        })
+        focus.addEventListener('blur', () => {//失去焦點  
+            console.log('焦點失去')
+        })
+        const keyboard = document.querySelector('.keyboard')
+        keyboard.addEventListener('keydown', () => {//鍵盤按下
+            console.log('鍵盤按下')
+        })
+        keyboard.addEventListener('keyup', () => {//鍵盤彈起
+            console.log('鍵盤彈起')
+        })
+        const inputText = document.querySelector('.inputText')//文本事件
+        inputText.addEventListener('input',()=>{
+            console.log("文本事件觸發")
+            console.log(inputText.value)//取得文本值
+        })
+    </script>
+</body>
+
+</html>
