@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="電腦">
+    <input type="checkbox" class="ipt">
+    <button > 點擊</button>
+    <script>
+        const name = document.querySelector('input')
+        console.log(name.value)
+        name.type = 'password'
+
+        const ipt = document.querySelector('.ipt')
+        ipt.checked = true
+
+        const btn=document.querySelector('button')
+        console.log(btn.disabled)
+        btn.disabled=true 
+
+    </script>
+</body>
+
+</html>

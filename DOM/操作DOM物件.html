@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">我是文字內容</div>
+    <script>
+        const box = document.querySelector('.box')
+        box.innerText='我是盒子'//不解析標籤
+        box.innerHTML='<strong>我是盒子</strong>'//解析標籤
+
+
+    </script>
+</body>
+
+</html>

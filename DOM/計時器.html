@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            display: block;
+
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30"
+        rows="10">Lorem ipsum, dolor sit amet consectetur 
+        adipisicing elit. Numquam quaerat blanditiis, incidunt nemo officiis dolorem ipsum? 
+        Delectus labore illo consequuntur nisi doloremque nobis voluptate eaque ea debitis nam. Suscipit, dolorem?</textarea>
+    <button disabled>倒數60秒同意</button>
+    <script>
+        //setInterval(函數,間隔時間)
+        // let t1 = setInterval(function () {
+        //     console.log("一號")
+        // }, 1000)
+        // console.log(t1)
+        // let t2 = setInterval(function () {
+        //     console.log("二號")
+        // }, 1000)
+        // console.log(t2)
+        // //關閉定時器
+        // clearInterval(t1)
+        let t = 60
+        let btn = document.querySelector('button')
+        let time = setInterval(function () {
+            btn.innerHTML = `倒數${t}秒同意`
+            t--
+            if (t === 0) {
+            clearInterval(time)
+            btn.innerHTML = `同意`
+            btn.disabled=false
+        }
+        }, 10)
+
+    </script>
+</body>
+
+</html>

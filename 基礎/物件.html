@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            name: "劉德華",
+            age: 18,
+            gender: "男",
+            song: function () { console.log("唱歌") }
+        }
+
+        //遍歷物件
+        //Obj
+        for(key in obj){
+            // console.log(key)//此時key抓到的屬性值會是字串
+            // console.log(obj.key)//因此這行無法正確抓出屬性
+            console.log(obj[key])//要用此語法
+            // console.log(obj['name'])//obj輸出屬性另一種寫法
+        }
+
+        //array(不建議使用)
+        // let arr = ["aa", "bb", "cc"]
+        // for (let k in arr) {
+        //     console.log(k)
+        // }
+    </script>
+</body>
+
+</html>

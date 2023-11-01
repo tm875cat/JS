@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num1 = 10
+        let num2 = num1
+        num2 = 20
+        document.write(`num1=` + num1+`<br>`)//10
+
+        let obj1 = { age: 18 }
+        let obj2 = obj1//obj1 2指向棧內存同一地址
+        obj2.age=20//改變obj2.age obj1的也會一起改
+        document.write(`obj1=` + obj1.age)//20
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            margin-left: 20%;
+        }
+
+        h1 {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>抽獎</h1>
+        <h3>一獎</h3><h2>一獎</h2>
+        <h3>二獎</h3> <h2>二獎</h2>
+        <h3>三獎</h3> <h2>三獎</h2>
+    </div>
+    <script>
+        const list = ["Danny", "Alice", "Jhon", "Max", "Barry", "Peter"]
+
+        function getRandomBall(list) {
+            for (let i = 0; i < 3; i++) {
+                let r = Math.floor(Math.random() * list.length)
+                const h2s = document.querySelectorAll('h2')
+                h2s[i].innerHTML = `${list[r]}`
+                list.splice(r, 1)
+            }
+        }
+        getRandomBall(list)
+
+    </script>
+</body>
+
+</html>

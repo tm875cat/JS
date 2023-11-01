@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let money = 100;
+        while (true) {
+            let choose = +prompt(`選擇操作:
+                1.存錢
+                2.領錢
+                3.查看餘額
+                4.退出
+                `)
+
+            if (choose === 4) {
+                break
+            }
+            switch (choose) {
+                case 1:
+                    money += +prompt('輸入存款金額:')
+                    break
+                case 2:
+                money -= +prompt('輸入存款金額:')
+                    break
+                case 3:
+                    alert(`您的餘額是:${money}元`)
+                    break
+                default:
+                    alert("請輸入正確指令")
+
+            }
+        }
+    </script>
+</body>
+
+</html>

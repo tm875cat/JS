@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let time = prompt("輸入秒數")
+        timeChange(time)
+
+
+        function timeChange(time) {
+            let sec = time % 60;
+            let min = time / 60 % 60;
+            let hour = time / 60 / 60 % 24;
+         return  `共${addZero(hour)}時${addZero(min)}分${addZero(sec)}秒`
+        }
+        function addZero(num) {
+            if (  Math.floor(num)  < 10) {
+                return "0" +   Math.floor(num) 
+            }
+            else {
+                return   Math.floor(num) 
+            }
+        }
+        document.write(  timeChange(time))
+
+
+    </script>
+</body>
+
+</html>

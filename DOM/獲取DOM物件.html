@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>使用CSS選擇器來選</h2>
+    <div class="box">123</div>
+    <div class="box">abc</div>
+    <p id="sss">段落</p>
+    <ul>
+        <li>test</li>
+        <li>test</li>
+        <li>test</li>
+    </ul>
+
+
+    <script>
+
+        const box = document.querySelector('.box')//用class選
+        console.log(box)
+        box.style.backgroundColor = 'red'
+        const p = document.querySelector('#sss')//用id選
+        console.log(p)
+        const li = document.querySelector('ul li:first-child')//CSS選擇器語法基本都能用
+        console.log(li)
+        // li.style.height = '100px'
+        // li.style.backgroundColor = 'red'
+
+        const allLi = document.querySelectorAll(`li`)//符合條件全選 並返回一個陣列，但pop() push()等方法不能用
+        console.log(allLi)
+
+        for (let i = 0; i < allLi.length; i++) {
+            allLi[i].style.height = '100px'
+            allLi[i].style.backgroundColor = getRandomColor()
+        }
+        function getRandomColor() {//隨機取顏色
+            let r = Math.floor(Math.random() * 256)
+            let g = Math.floor(Math.random() * 256)
+            let b = Math.floor(Math.random() * 256)
+            return `rgb(${r},${g},${b})`
+        }
+
+    </script>
+</body>
+
+</html>

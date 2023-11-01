@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+        position: relative;
+    }
+
+    .close_box {
+        width: 30px;
+        padding: 5px;
+        font-size: 24px;
+        background-color: aqua;
+        position: absolute;
+        right: 0;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="close_box">X</div>
+    </div>
+    <button>點擊</button>
+    <script>
+        const closeBox = document.querySelector('.close_box')
+        closeBox.addEventListener("click", function () {
+            document.querySelector('.box').style.display = 'none'
+        })
+
+        const btn = document.querySelector('button')
+        btn.addEventListener("click", function () {
+            alert("觸發")
+        })
+    </script>
+</body>
+
+</html>

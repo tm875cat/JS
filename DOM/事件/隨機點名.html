@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .name {
+            margin-bottom: 5rem;
+        }
+
+        .btn {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="name">隨機抽名字</div>
+        <div class="btn"> <button id="start">開始</button>
+            <button id="end">結束</button>
+        </div>
+    </div>
+    <script>
+        const data = ["Danny000", "Allen111", "Jhon222", "Peter333", "Tony444", "Snell555", "Yuri666", "Frank777"]
+        let nameIndex = 0
+        const name = document.querySelector('.name')
+        const startBtn = document.querySelector('#start')
+        const endBtn = document.querySelector('#end')
+        let time
+        let r
+        startBtn.addEventListener("click", () => TimeRandomName(true))
+        endBtn.addEventListener("click", function () { TimeRandomName(false) })
+        function TimeRandomName(flag) {
+            if (flag == true) {
+                time = setInterval(() => {
+                    r = Math.floor(Math.random() * data.length)
+                    name.innerHTML = `${data[r]}`
+
+                }, 100);
+                console.log(data)
+
+            }
+            else {
+                if (!time) {
+                    name.innerHTML = `請按開始按鈕`
+                    console.log(time)
+                    return
+                }
+                clearInterval(time)
+                data.splice(r, 1)
+                console.log(data)
+                if (data.length === 1) {
+                    startBtn.disabled = true
+                    endBtn.disabled = true
+                    alert(`抽完了`)
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
