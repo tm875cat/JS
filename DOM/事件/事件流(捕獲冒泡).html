@@ -37,18 +37,29 @@
 
         // //捕獲階段->由大到小 父到子 預設都是用冒泡要用捕獲的話addEventListener需另外設定 第三個參數true
         //捕獲階段 台灣->基隆->四腳亭
-        document.addEventListener('click', function () {
-            alert("爺爺")
-        },true)
-        father.addEventListener('click',function(){
-            alert('爸爸')
-        },true)
-        son.addEventListener('click',function(){
-            alert('兒子')
-        },true)
+        // document.addEventListener('click', function () {
+        //     alert("爺爺")
+        // },true)
+        // father.addEventListener('click',function(){
+        //     alert('爸爸')
+        // },true)
+        // son.addEventListener('click',function(){
+        //     alert('兒子')
+        // },true)
 
         //冒泡階段->由小到大 子到父
         //冒泡階段 四腳亭->基隆->台灣
+        document.addEventListener('click', function () {//false可以不寫因為預設就冒泡
+            alert("爺爺")
+        },false)
+        father.addEventListener('click',function(){
+            alert('爸爸')
+        },false)
+        son.addEventListener('click',function(e){
+            alert('兒子')
+            e.stopPropagation()//阻止冒泡
+        },false)
+        //阻止冒泡/捕獲
 
     </script>
 </body>
