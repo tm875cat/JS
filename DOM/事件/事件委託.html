@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>第1個元素</li>
+        <li>第2個元素</li>
+        <li>第3個元素</li>
+        <li>第4個元素</li>
+        <li>第5個元素</li>
+        <p>不用變色</p>
+    </ul>
+    <script>
+        const ul = document.querySelector('ul')
+        ul.addEventListener("click", function (e) {//利用冒泡特性把事件註冊在父元素上
+            this.style.color = "red"//li全部都會變紅
+            console.log(e.target)//利用Event物件取得點到哪個li
+            console.log(e.target.tagName)//利用Event物件取得點到元素的標籤名稱
+            if (e.target.tagName == "LI") {
+                e.target.style.color = 'blue'
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

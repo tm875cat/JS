@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        width: 300px;
+
+        border-collapse: collapse;
+    }
+
+    tr {
+        border: 1px solid black;
+    }
+
+    th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+
+    }
+
+    th input {
+        position: relative;
+        right: 8px;
+    }
+
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <table>
+        <tr>
+            <th>
+                <input type="checkbox" id="checkAll"><span class="all">全選</span>
+            </th>
+            <th>商品</th>
+            <th>商家</th>
+            <th>價格</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="ck"></td>
+            <td>小米手機</td>
+            <td>小米</td>
+            <td>1450</td>
+        </tr>
+
+        <tr>
+            <td><input type="checkbox" class="ck"></td>
+            <td>小米手環</td>
+            <td>小米</td>
+            <td>1550</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="ck"></td>
+            <td>小米淨水器</td>
+            <td>小米</td>
+            <td>2550</td>
+        </tr>
+    </table>
+    <script>
+        const checkAll = document.querySelector('#checkAll')
+        const cks = document.querySelectorAll('.ck')
+        checkAll.addEventListener("click", function () {//全選框
+            console.log(this.checked)//得到選取框狀態
+            for (let i = 0; i < cks.length; i++) {
+                cks[i].checked = this.checked
+            }
+        })
+        for (let i = 0; i < cks.length; i++) {
+            cks[i].addEventListener('click', function () {
+                console.log(document.querySelectorAll('.ck:checked'))//利用CSS選取器返回一個由已選取的選取框元素組成的陣列
+                // if (document.querySelectorAll('.ck:checked').length === cks.length) {//判斷勾選數量等於總數時把全選勾了
+                //     checkAll.checked = true
+                // }
+                checkAll.checked = document.querySelectorAll('.ck:checked').length === cks.length//更簡潔的寫法
+
+            })
+        }
+
+    </script>
+</body>
+
+</html>

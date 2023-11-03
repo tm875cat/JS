@@ -19,6 +19,20 @@
             background-color: rgb(214, 12, 45);
             font-size: 48px;
         }
+
+        .dad {
+            width: 500px;
+            height: 500px;
+            background-color: deeppink;
+            font-size: 48px;
+        }
+
+        .baby {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            font-size: 48px;
+        }
     </style>
 </head>
 
@@ -28,6 +42,14 @@
         爸爸
         <div class="son">
             兒子
+        </div>
+    </div>
+
+
+    <div class="dad">
+        父
+        <div class="baby">
+            子
         </div>
     </div>
     <script>
@@ -51,15 +73,36 @@
         //冒泡階段 四腳亭->基隆->台灣
         document.addEventListener('click', function () {//false可以不寫因為預設就冒泡
             alert("爺爺")
-        },false)
-        father.addEventListener('click',function(){
+        }, false)
+        father.addEventListener('click', function () {
             alert('爸爸')
-        },false)
-        son.addEventListener('click',function(e){
+        }, false)
+
+        son.addEventListener('click', function (e) {
             alert('兒子')
             e.stopPropagation()//阻止冒泡
-        },false)
+        }, false)
         //阻止冒泡/捕獲
+
+
+        // ---------------------------
+        const dad = document.querySelector('.dad')
+        // const baby=document.querySelector('.baby')
+
+        // dad.addEventListener('mouseover',function(){//mouseover有冒泡發生
+        //     console.log('滑鼠經過')
+        // })
+        // dad.addEventListener('mouseout',function(){//mouseout有冒泡發生
+        //     console.log('滑鼠離開')
+        // })
+
+
+        dad.addEventListener('mouseenter', function () {//mouseover無冒泡發生
+            console.log('滑鼠經過')
+        })
+        dad.addEventListener('mouseleave', function () {//mouseout無冒泡發生
+            console.log('滑鼠離開')
+        })
 
     </script>
 </body>

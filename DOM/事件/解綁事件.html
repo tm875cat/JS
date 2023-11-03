@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">事件解綁</button>
+    <button id="btn2">第二種解綁</button>
+    <script>
+        const btn = document.querySelector('#btn')
+        const btn2 = document.querySelector('#btn2')
+        btn.onclick = function () {//onclick解綁 
+            alert('點擊了')
+            btn.onclick = null//直接給空值即可因為函數也是一個物件，可以直接用空值覆蓋掉
+        }
+
+        btn2.addEventListener('click', fn)//匿名函數無法解綁
+        function fn() {
+            alert("點了")
+        btn2.removeEventListener('click', fn)//匿名函數無法解綁
+
+        }
+
+    </script>
+</body>
+
+</html>

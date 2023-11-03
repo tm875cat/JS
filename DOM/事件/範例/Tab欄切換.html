@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        ul {
+            margin-block-start: 1rem;
+            margin-block-end: 1rem;
+            margin-inline-start: 0;
+            margin-inline-end: 0;
+            padding-inline-start: 40px;
+        }
+
+        .tab_nav {
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            display: flex;
+            /* justify-content: space-between; */
+
+        }
+
+        .tab_nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+
+        }
+
+        .tab_nav ul .active {
+            color: red;
+        }
+
+        .tab_nav ul li {
+            margin-left: 1rem;
+        }
+
+        .tab_content {
+            padding: 0 16px;
+        }
+
+        .tab_content .item {
+            display: none;
+        }
+
+        .tab_content .item.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_nav">
+            <h3>每日特價</h3>
+            <ul>
+                <li><a class="active" href="" data-id="0">精選</a></li>
+                <li><a href="" data-id="1">美食</a></li>
+                <li><a href="" data-id="2">百貨</a></li>
+                <li><a href="" data-id="3">家電</a></li>
+                <li><a href="" data-id="4">預告</a></li>
+            </ul>
+        </div>
+        <div class="tab_content">
+            <div class="item active"><img src="/img/images (1).jpg" alt=""></div>
+            <div class="item"><img src="/img/下載 (1).jpg" alt=""></div>
+            <div class="item"><img src="/img/下載 (2).jpg" alt=""></div>
+            <div class="item"><img src="/img/下載.jpg" alt=""></div>
+            <div class="item"><img src="/img/images.jpg" alt=""></div>
+        </div>
+    </div>
+    <script>
+        // const as = document.querySelectorAll('.tab_nav a')
+        const ul = document.querySelector('.tab_nav ul')
+        ul.addEventListener('click', function (e) {
+            event.preventDefault(); // 阻止默認行为因為點到空a標籤頁面會刷新
+            if (e.target.tagName === "A") {
+                document.querySelector('.tab_nav .active').classList.remove('active')
+                e.target.classList.add('active')
+                let i = +e.target.dataset.id
+                console.log(i)
+                document.querySelector('.tab_content .active').classList.remove("active")
+                document.querySelector(`.tab_content .item:nth-child(${i + 1})`).classList.add("active")
+            }
+        })
+
+
+
+        //原始寫法
+        // for (let i = 0; i < as.length; i++) {//為每個a標籤新增事件
+        //     as[i].addEventListener('mouseenter', function () {//滑鼠經過的項目變紅色
+        //         console.log("滑鼠經過")
+        //         document.querySelector('.tab_nav .active').classList.remove('active')
+        //         this.classList.add('active')
+        //         document.querySelector('.tab_content .active').classList.remove('active')
+        //         document.querySelector(`.tab_content .item:nth-child(${i + 1})`).classList.add('active')
+        //     })
+        // }
+    </script>
+</body>
+
+</html>

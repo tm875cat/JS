@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <textarea name="" id="text" cols="30" rows="10"></textarea>
+        <button>送出</button>
+        <div class="talk"></div>
+
+
+    </div>
+    <script>
+        const talk = document.querySelector('.talk')
+        const text = document.querySelector('#text')
+
+        text.addEventListener('keyup', function (e) {
+            if (e.key === "Enter") {
+                talk.innerHTML = `評論${text.value}`
+                text.value=''
+            }
+        })
+    </script>
+</body>
+
+</html>

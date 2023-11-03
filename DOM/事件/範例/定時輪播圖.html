@@ -59,16 +59,19 @@
         <div class="title_box">
             <div class="title">大谷翔平1111111</div>
             <ul class="point">
+                <button id="left">
+                    左 </button>
                 <li class="active"></li>
                 <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
+                <button id="right">右</button>
             </ul>
         </div>
     </div>
     <script>
-        let sliderData = [
+        const sliderData = [
             { url: '/img/下載 (1).jpg', title: '大谷翔平1111111', color: 'red' },
             { url: '/img/下載 (2).jpg', title: '大谷翔平2222222', color: 'blue' },
             { url: '/img/下載.jpg', title: '大谷翔平3333333', color: 'rgb(160, 43, 170)' },
@@ -76,25 +79,50 @@
             { url: '/img/images.jpg', title: '大谷翔平5555555', color: 'rgb(231, 235, 22)' }
         ]
         let i = 0;
-        let img = document.querySelector('img')
-        let title = document.querySelector('.title')
-        let titleBox = document.querySelector('.title_box')
-
-
-        let lis = document.querySelectorAll('li')
-        let time = setInterval(function () {
+        const img = document.querySelector('img')
+        const title = document.querySelector('.title')
+        const titleBox = document.querySelector('.title_box')
+        const right = document.querySelector('#right')
+        const left = document.querySelector('#left')
+        const box = document.querySelector('.box')
+        const lis = document.querySelectorAll('li')
+        let time
+        box.addEventListener('mouseenter', function () {//滑鼠經過定時器關掉
+            clearInterval(time)
+        })
+        box.addEventListener('mouseleave', function () {//滑鼠離開定時器打開
+            clearInterval(time)
+            time = setInterval(function () {
+            right.click()//調用right按鈕的點擊事件
+        }, 1000)
+        })
+        right.addEventListener("click", function () {
             i++
-            if (i == sliderData.length ) {
+            if (i == sliderData.length) {
                 i = 0
-            }
-            console.log(i)
+            } toggle()
+
+        })
+        left.addEventListener("click", function () {
+            i--
+            if (i <= 0) {
+                i = sliderData.length - 1
+            } toggle()
+
+        })
+
+
+       
+         time = setInterval(function () {
+            right.click()//調用right按鈕的點擊事件
+        }, 1000)
+        function toggle() {//渲染獨立成方法
             let act = document.querySelector('.active').classList.remove('active')
             img.src = `${sliderData[i].url}`
             title.innerHTML = `${sliderData[i].title}`
             titleBox.style.backgroundColor = `${sliderData[i].color}`
             lis[i].classList.toggle('active')
-        
-        }, 1000)
+        }
 
 
 
