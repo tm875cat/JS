@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="add">新增</button>
+    <button id="del">刪除</button>
+    <script>
+        const addbtn = document.querySelector('#add')
+        const delbtn = document.querySelector('#del')
+
+        addbtn.addEventListener("click", function () {
+            localStorage.setItem("name", "阿福")//新增及修改
+            localStorage.setItem("age", 18)//新增及修改
+
+
+        })
+        delbtn.addEventListener("click", function () {
+            localStorage.removeItem('name') //刪除
+        })
+        // localStorage.getItem("name")//獲取數據
+        console.log(localStorage.getItem("name"));
+        console.log(typeof(localStorage.getItem("age")) );//本地存儲只能存字串
+
+
+    </script>
+</body>
+
+</html>

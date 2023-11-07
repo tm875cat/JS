@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div class="time"></div>
+
+<body>
+    <script>
+        const date = new Date()//初始化Date物件
+
+        console.log(date.getFullYear())
+        console.log(date.getMonth()+1)
+        console.log(date.getDate())
+        console.log(date.getDay)
+      const time=document.querySelector(".time")
+        const date1 = new Date('2008-8-8')//取得指定日期
+        console.log(date1)
+  
+        time.innerHTML=`今天是${date.getFullYear()}年${date.getMonth()+1}月${date.getDay()}日${date.getHours()}點${date.getMinutes()}分${date.getSeconds()}秒`
+    </script>
+</body>
+
+</html>

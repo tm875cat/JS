@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" name="userName">
+        <input type="text" name="psw" id="">
+        <button>提交</button>
+        <button id="reset">刷新</button>
+    </form>
+    <script>
+        // console.log(window.location);//window可省略
+
+        console.log(location.href);//href屬性=網址
+        // location.href='https://github.com/tm875cat/personal-topics/settings/pages'//可利用JS的方式跳轉頁面
+
+        console.log(location.search);//search屬性獲取網址?後的部分
+        const reset = document.querySelector('#reset')
+        reset.addEventListener('click', function () {
+            location.reload()//刷新頁面
+
+            location.reload(true)//強制刷新頁面
+
+        })
+    </script>
+</body>
+
+</html>

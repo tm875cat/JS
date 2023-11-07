@@ -98,6 +98,29 @@
         })
 
 
+        function add(a, b) {
+            if (a || b == Number) {
+                return a + b
+            }
+            else {
+                return "請輸入數字"
+            }
+
+        }
+
+        function add(a, b) {
+            try {
+                return a + b
+
+            } catch (error) {
+                return "請輸入數字"
+            }
+
+
+
+        }
+
+
 
         //原始寫法
         // for (let i = 0; i < as.length; i++) {//為每個a標籤新增事件

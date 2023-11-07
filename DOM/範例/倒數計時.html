@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            font-size: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time_now">
+        現在時間
+    </div>
+    <div class="time">
+        剩餘時間
+    </div>
+    <div class="end_time">結束時間18:00:00</div>
+    <script>
+        const timeNow = document.querySelector( '.time_now')
+        const time = document.querySelector('.time')
+        let h
+        let m
+        let s
+        let hh
+        let mm
+        let ss
+        function getCountTime() {
+            const today = new Date()
+            //得到當前時間戳
+            const now = +new Date()
+            //得到結束時間戳
+            const last = +new Date(`${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()} 18:00:00`)
+            //得到剩餘時間戳 時間戳以毫秒計算所以需除1000來換成秒數
+            const count = (last - now) / 1000
+            h = parseInt(`${count / 60 / 60 % 24}`)
+            m = parseInt(`${count / 60 % 60}`)
+            s = parseInt(`${count % 60}`)
+            hh = addZero(today.getHours())
+            mm = addZero(today.getMinutes())
+            ss = addZero(today.getSeconds())
+            timeNow.innerHTML = `現在時間:${hh}點${mm}分${ss}秒`
+            time.innerHTML = `剩餘時間:${addZero(h)}時${addZero(m)}分${addZero(s)}秒`
+        }
+        getCountTime()//先調用一次(不然會有一秒沒渲染到)
+        setInterval(getCountTime, 1000)
+
+
+
+
+        function addZero(num) {
+            if (num < 10) {
+                num = "0" + num
+                return num
+            }
+            return num
+        }
+    </script>
+</body>
+
+</html>

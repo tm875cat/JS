@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+        position: relative;
+        font-size: 36px;
+    }
+
+    .close_box {
+        width: 30px;
+        padding: 5px;
+        font-size: 24px;
+        background-color: aqua;
+        position: absolute;
+        right: 0;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="box">
+        廣告
+        <div class="close_box">X</div>
+    </div>
+    <script>
+        //需獲取兩次元素的寫法
+        // const closeBox = document.querySelector('.close_box')
+        // closeBox.addEventListener("click", function () {
+        //     document.querySelector('.box').style.display = 'none'
+        // })
+        const closeBox = document.querySelector('.close_box')
+        closeBox.addEventListener("click", function () {
+            this.parentNode.style.display = 'none'//直接取得this的父元素
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 3.5rem;
+        }
+
+        .head {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .data_title {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        tr {
+            width: 100%;
+        }
+
+        th {
+            border: 1px solid black;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        td {
+            text-align: center;
+            border: 1px solid black;
+            padding: 0 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>統計表</h1>
+    <div class="head">
+        <form action="" id="info" autocomplete="off">
+            <input type="text" id="name" placeholder="姓名">
+            <input type="text" id="age" placeholder="年齡">
+            <input type="text" id="salary" placeholder="薪水">
+            <select name="gender" id="gender">
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            <select name="city" id="city">
+                <option value="台北">台北</option>
+                <option value="新北">新北</option>
+                <option value="台中">台中</option>
+                <option value="新竹">新竹</option>
+            </select>
+            <button class="add">添加</button>
+        </form>
+        <div class="data_title">共有數據0條</div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年齡</th>
+                <th>薪水</th>
+                <th>性別</th>
+                <th>城市</th>
+                <th>時間</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+
+    </table>
+    <script>
+        const initData = [
+            {
+                stuId: 1,
+                name: "Danny",
+                age: 25,
+                gender: "男",
+                salary: 10000,
+                city: "台北",
+                time: '2023/9/9 08:00:00'
+            },
+        ]
+        const tbody = document.querySelector('tbody')
+        localStorage.setItem('data', JSON.stringify(initData))//initData先存到localStorage(測試用)
+        const arr = JSON.parse(localStorage.getItem('data')) || []//取得localStorage的資料並轉為陣列 物件  若沒資料則給空陣列
+        //1渲染功能--------------------------
+        function render() {//渲染功能
+            const dataTitle = document.querySelector('.data_title')
+            //map遍歷數組
+            const trArr = arr.map(function (ele, index) {
+                return `
+                <tr>
+                <td>${ele.stuId}</td>
+                <td>${ele.name}</td>
+                <td>${ele.age}</td>
+                <td>${ele.gender}</td>
+                <td>${ele.salary}</td>
+                <td>${ele.city}</td>
+                <td>${ele.time}</td>
+                <td><button id="del" data-id="${index}">刪除</button></td>
+                </tr>
+                `
+            })
+            console.log(trArr);
+            tbody.innerHTML = trArr.join('')
+            dataTitle.innerHTML = `共有數據${trArr.length}條`
+        }
+
+        render()//進頁面先渲染
+        const info = document.querySelector('#info')
+        const name = document.querySelector('#name')
+        const age = document.querySelector('#age')
+        const salary = document.querySelector('#salary')
+        const gender = document.querySelector('#gender')
+        const city = document.querySelector('#city')
+        info.addEventListener("submit", function (e) {//------------------------新增事件
+            e.preventDefault()//取消表單提交的預設事件
+            if (!name.value || !age.value || !salary) {//防呆
+                return alert('輸入內容不能為空')
+            }
+            arr.push({//表單內容做成物件推進陣列內
+                stuId:  arr.length!=0 ?arr[(arr.length - 1)].stuId + 1:1,
+                name: name.value,
+                age: age.value,
+                salary: salary.value,
+                gender: gender.value,
+                city: city.value,
+                time: new Date().toLocaleString()//取得當下時間
+            })
+            render()//陣列更新後重新渲染
+            this.reset()//重製錶單
+        })
+        tbody.addEventListener('click', function (e) {//刪除按鈕
+
+            if (e.target.tagName === 'BUTTON') {//事件註冊在父層，先判斷點到的是否為按鈕
+                if (confirm('確定刪除?')) {
+                    arr.splice(e.target.dataset.id, 1)//根據自定義屬性data-id找到需刪除的項目
+                    render()//重新渲染
+                    localStorage.setItem('data', JSON.stringify(arr))//localStorage直接改了
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="title"></div>
+    <script>
+        const title = document.querySelector('.title')
+        let sec = 5
+        title.innerHTML = `${sec}秒後跳轉頁面`
+        let timerId = setInterval(function () {
+            title.innerHTML = `${sec}秒後跳轉頁面`
+            sec--
+
+            if (sec === 0) {
+                clearInterval(timerId)
+                // location.href = "https://github.com/tm875cat/personal-topics/settings/pages"
+            }
+        }, 1000)
+    </script>
+</body>
+
+</html>

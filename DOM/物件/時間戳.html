@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //獲得時間戳的方法
+        //1使用getTime()方法
+        const date = new Date()
+        console.log(date.getTime())
+        //2簡寫+new Date()
+        console.log(+new Date())
+        //3 Date.now()此方法只能獲得當前時間戳
+        console.log(Date.now())
+        //簡寫+new Date()指定時間
+        console.log(+new Date('2022-4-1 00:00:00'))
+
+        //根據日期Day()0~6 返回星期幾
+        const arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+        console.log(arr[new Date().getDay()]);
+    </script>
+</body>
+
+</html>

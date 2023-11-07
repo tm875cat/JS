@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = ["red", "blue", "green"]
+        const newArr = arr.map(function (ele, index) {
+            // console.log(ele);
+            // console.log(index);
+            return ele + "顏色"
+        })
+        console.log(newArr);
+        //join方法 把陣列拚成字串
+        console.log(newArr.join());//每個元素以逗號隔開
+        console.log(newArr.join(''));//無分割符號
+        console.log(newArr.join('|'));//用|隔開
+
+    </script>
+</body>
+
+</html>

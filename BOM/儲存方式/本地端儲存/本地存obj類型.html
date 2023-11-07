@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            name: "Danny",
+            age: 18,
+            gender: "男"
+        }
+        sessionStorage.setItem('obj',obj)//本地儲存無法直接存物件型別
+        console.log(sessionStorage.getItem('obj') );
+        sessionStorage.setItem('obj',JSON.stringify(obj))//先轉為JSON字串在存
+        console.log(JSON.parse(sessionStorage.getItem('obj'))  );//把JSON字串轉回物件 
+
+
+    </script>
+
+</body>
+
+</html>
