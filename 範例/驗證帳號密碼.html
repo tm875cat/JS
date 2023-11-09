@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .red {
+        color: red;
+    }
+
+    .green {
+        color: green;
+    }
+
+    .box {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+
+    }
+
+    .list {
+        margin-top: 50px;
+        display: flex;
+        justify-content: end;
+        width: 300px;
+        position: relative;
+
+    }
+
+    span {
+        position: absolute;
+        right: -100px;
+    }
+
+    .list input {
+        width: 200px;
+        height: 30px;
+    }
+
+    .verifyBtn {
+        position: absolute;
+        width: 100px;
+        top: 40px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="list">
+            帳號:
+            <input class="account" type="text">
+            <span></span>
+        </div>
+        <div class="list">
+            名稱:
+            <input class="name" type="text">
+            <span></span>
+        </div>
+        <div class="list">
+            手機:
+            <input class="phone" type="text">
+            <span></span>
+        </div>
+        <div class="list">
+            密碼:
+            <input class="password" type="text">
+            <span></span>
+        </div>
+     
+
+    </div>
+    <script>
+        const accountInput = document.querySelector('.account')
+        const nameInput = document.querySelector('.name')
+        const phoneInput = document.querySelector('.phone')
+        const pswInput = document.querySelector('.password')
+   
+
+
+        accountInput.addEventListener('change',
+            function () { verifyAccountPsw(this, this.nextElementSibling) }
+        )
+        pswInput.addEventListener('change', function () {
+            verifyAccountPsw(this, this.nextElementSibling)
+        })
+        phoneInput.addEventListener('change',function(){
+            verifyPhone(this,this.nextElementSibling)
+        })
+        function verifyAccountPsw(input, span) {//帳號密碼驗證
+            const reg = /^[a-zA-Z0-9-_]{6,16}$/
+            if (reg.test(input.value)) {
+                span.innerHTML = '輸入正確'
+                span.classList.add("green")
+                span.classList.remove("red")
+            }
+            else {
+                span.innerHTML = '輸入錯誤'
+                span.classList.add("red")
+                span.classList.remove("green")
+            }
+        }
+        function verifyPhone(input, span) {//手機驗證
+            const reg = /^09\d{8}$/
+            if (reg.test(input.value)) {
+                span.innerHTML = '輸入正確'
+                span.classList.add("green")
+                span.classList.remove("red")
+            }
+            else {
+                span.innerHTML = '輸入錯誤'
+                span.classList.add("red")
+                span.classList.remove("green")
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = 'ddadsd前端sad前端asdsa'
+        const reg = /前端/  //正則表達式格式
+        console.log(reg.test(str));
+        console.log(reg.exec(str));
+        // 邊界符號 ^表示必須用什麼開頭 $表示用什麼結尾
+
+        console.log("邊界符號--------------------------");
+        console.log(/哈/.test('哈'));
+        console.log(/^哈/.test('哈xx'));
+        console.log(/哈$/.test('二哈'));
+        console.log(/^哈$/.test('哈哈'));//精準匹配   哈開頭哈結尾只能有一個字
+
+        // *重複0次或更多次
+        console.log(/^哈*$/.test('哈哈哈'));
+        // +重複1次或更多次
+        console.log(/^哈+$/.test('哈1哈'));
+
+        // ?重複0次或1次
+        console.log(/^哈?$/.test(''));
+        //{n}重複n次
+        console.log(/^哈{4}/.test("哈哈哈哈"));
+        // {n,}重複n次或多次
+        console.log(/^哈{4,}$/.test("哈哈哈哈哈c"));
+        // {n,m}重複n到m次
+        console.log(/^哈{4,6}$/.test("哈哈哈哈哈哈哈哈哈"));
+        // [abc]匹配字元集合 只要包含abc任意一個字元都返回true
+        console.log(/^[abc]$/.test('a'));
+        console.log(/^[abc]$/.test('ab'));//false只選擇一個
+        console.log(/^[abc]{3}$/.test('abc'));//false只選擇一個
+        console.log(/^[a-z]$/.test('p'));//-連字符 表示範圍
+        console.log(/^[A-Z]$/.test('p'));//-連字符 表示範圍
+        console.log(/^[1-9][0-9]{4,}$/.test('10000'));//第一個字1-9 第二個開始0-9
+        //    取反號 []裡面加上^
+        // .除了換行符號的任何字
+        // \d 0-9的任意數字
+        // \D 0-9以外任意字
+        // \w 任意字母 數字 下底線相當於[A-Za-z0-9_]
+        // \w 任意字母 數字 下底線以外的字相當於[^A-Za-z0-9_]
+        // \s 匹配空格(包括換行)
+        // \S 匹配非空格(包括換行)
+
+
+
+
+
+    </script>
+</body>
+
+</html>
