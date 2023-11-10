@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        for (var i = 0; i < 3; i++) {//區塊作用域 var可以在區塊外作用
+            console.log(i);
+        }
+        console.log(i);
+        for (let i = 0; i < 3; i++) {//區塊作用域 let無法在區塊外作用
+            console.log(i);
+        }
+        console.log(i);
+
+//函數中未使用var let const宣告的變數會變成全域
+        function fn() {
+            num = 10
+        }
+        fn()
+        console.log(num);
+    </script>
+</body>
+
+</html>
